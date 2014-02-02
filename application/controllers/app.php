@@ -5,26 +5,49 @@ class App extends CI_Controller {
   public function index()
   {
     // Get app sample data
-    $users = $this->_sample_data('users');
-    $ales = $this->_sample_data('ales');
+    $users = $this->_sampleData('users');
+    $ales = $this->_sampleData('ales');
 
-    // Process sample data
-    if ($users && $ales) {
-      $data['users'] = array();
-      $data['ales'] = array();
+    // We store the sliders inside an array to pass to the view
+    $data['sliders'] = array();
 
-      foreach ($users as $user) {
+    if ($users && $ales) :
+      $i = 0;
 
-        // var_dump($user);
-      }
-    }
+      foreach ($users as $user) :
+
+        // Get the array key for the matching ale id
+        $ale_array_key = $this->_searchForId($user->id, $ales);
+
+        // Add view data to array
+        $data['sliders'][$i]['id'] = $user->id;
+        $data['sliders'][$i]['ale'] = $user->ale;
+        $data['sliders'][$i]['ale_name'] = $ales[$ale_array_key]->name;
+
+        $i++;
+
+      endforeach;
+    endif;
 
     $this->load->view('partials/header');
     $this->load->view('welcome', $data);
     $this->load->view('partials/footer');
   }
 
-  private function _sample_data($file_name)
+  // Adapted to search array->object mapping from the following function
+  // http://stackoverflow.com/questions/6661530/php-multi-dimensional-array-search
+  private function _searchForId($id, $array)
+  {
+    foreach ($array as $key => $val) {
+      if ($val->id === $id) {
+        return $key;
+      }
+    }
+    return null;
+  }
+
+  // custom function to pull in data from the sample json files
+  private function _sampleData($file_name)
   {
     if ( ! read_file(FCPATH . 'data/' . $file_name . '.json')) {
       return FALSE;
