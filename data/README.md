@@ -2,7 +2,7 @@
 
 Sample data was originally generated at http://www.json-generator.com/ using the following variables. It has been tweaked to work with the application.
 
-### users.json
+`users.json`
 
     [
         '{{repeat(20, 20)}}',
@@ -17,7 +17,7 @@ Sample data was originally generated at http://www.json-generator.com/ using the
         }
     ]
 
-### ales.json
+`ales.json`
 
     [
         '{{repeat(20, 20)}}',
