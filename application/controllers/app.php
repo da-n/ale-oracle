@@ -15,15 +15,13 @@ class App extends CI_Controller {
 
       foreach ($users as $user) {
 
-        var_dump($user);
+        // var_dump($user);
       }
     }
 
-    // $this->load->view('partials/header');
-    // $this->load->view('welcome', $data);
-    // $this->load->view('partials/footer');
-
-    echo $this->benchmark->elapsed_time('json_start', 'json_end');
+    $this->load->view('partials/header');
+    $this->load->view('welcome', $data);
+    $this->load->view('partials/footer');
   }
 
   private function _sample_data($file_name)
