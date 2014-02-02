@@ -17,7 +17,7 @@ class App extends CI_Controller {
       foreach ($users as $user) :
 
         // Get the array key for the matching ale id
-        $ale_array_key = $this->_searchForId($user->id, $ales);
+        $ale_array_key = $this->_searchForId($user->ale, $ales);
 
         // Add view data to array
         $data['sliders'][$i]['id'] = $user->id;
