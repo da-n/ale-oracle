@@ -9,21 +9,21 @@
   {
     "id": 1,
     "number": "one",
-    "question": "Is it hot, average or cold where you are?",
+    "question": "Are you in the mood for something light and crisp, well-rounded, or dark and moody?",
     "next_page": "question/2",
     "next_page_text": "Next Question"
   },
   {
     "id": 2,
     "number": "two",
-    "question": "Which best describes your mood?",
+    "question": "Do you want hops, fruitiness, bitterness or something exotic?",
     "next_page": "question/3",
     "next_page_text": "Final Question"
   },
   {
     "id": 3,
     "number": "three",
-    "question": "Are you feeling adventerous, or play it on the safe-side?",
+    "question": "Are you feeling adventerous or playing it safe and steady?",
     "next_page": "result/fixed",
     "next_page_text": "Go to result"
   }
