@@ -1,25 +1,21 @@
 @import 'normalize';
 @import 'mixins';
-@import 'helpers';
 
-$primary-colour: #222; // green
-$secondary-colour: #444; // red
-$dark-colour: #2a231d; // dark grey
-$light-colour: #ede2cc; // desaturated yellow
+$primary-colour: #222;
+$secondary-colour: #444;
+$highlight-colour: #f69525;
+$dark-colour: #2a231d;
+$light-colour: #ede2cc;
 $sans: 'PT Sans', Helvetica, Arial, sans-serif;
 $sans-narrow: 'PT Sans Narrow', Helvetica, Arial, sans-serif;
 $sans-caption: 'PT Sans Caption', Helvetica, Arial, sans-serif;
+$max-width: 480px;
 
 body {
   background-color: $secondary-colour;
   @include transition(background-color, 1s, ease);
-}
-
-.container {
-  // border: 0;
-  // @include border-radius(0);
-  // @include transition(border-radius, 1s, ease);
-  @include transition(margin-top, .5s, ease);
+  color: $light-colour;
+  text-align: center
 }
 
 h1 {
@@ -43,7 +39,7 @@ header {
   padding: .5em 0;
   text-align: center;
   background: $primary-colour url("/assets/img/header-background.svg") no-repeat top center;
-  background-size: auto 75%;
+  background-size: auto 100%;
   h1,
   h2 {
     text-transform: uppercase;
@@ -88,15 +84,18 @@ section {
   h5 {
     margin: 1em 0;
   }
-  &.next {
+  &.content-footer {
+    padding: 0 20px;
     h5 {
       margin: .5em 0;
     }
   }
-}
-.carousel-container {
-  overflow: hidden;
-  height: 80px;
+  &.question-header {
+    h2 {
+      font-size: 2em;
+      text-transform: uppercase;
+    }
+  }
 }
 
 footer {
@@ -115,188 +114,122 @@ a.button {
   padding: .7em 0;
   text-align: center;
   background-color: $primary-colour;
-  color: $light-colour;
+  color: $highlight-colour;
   text-transform: uppercase;
   text-decoration: none;
   font-family: $sans-caption;
   font-size: 1.4em;
   line-height: 1;
   font-weight: 700;
-  @include animation(pulse, 1s, linear, infinite);
-  @include transition(background-color, .5s, ease);
+  @include transition(background-color, .3s, ease);
   border: 1px solid rgba(255,255,255,.2);
   border-width: 1px 0;
   @include box-shadow(0, 0, 2px, rgba(0,0,0,.6));
+  &.button-pulse {
+    @include animation(button_pulse, 1s, linear, infinite);
+  }
 }
 
 a:hover.button {
-  background-color: lighten($primary-colour, 10%);
+  background-color: lighten($primary-colour, 5%);
+  @include transition(background-color, .3s, ease);
 }
 
-@keyframes "pulse" {
+@include keyframes(button_pulse) {
   0% {
-    background-color: $primary-colour;
-  }
-  50% {
     background-color: lighten($primary-colour, 10%);
   }
-  100% {
-    background-color: $primary-colour;
-  }
-}
-
-@-moz-keyframes pulse {
-  0% {
-    background-color: $primary-colour;
-  }
   50% {
+    background-color: $primary-colour;
+  }
+  100% {
     background-color: lighten($primary-colour, 10%);
   }
-  100% {
-    background-color: $primary-colour;
-  }
 }
 
-@-webkit-keyframes "pulse" {
-  0% {
-    background-color: $primary-colour;
-  }
-  50% {
-    background-color: lighten($primary-colour, 10%);
-  }
-  100% {
-    background-color: $primary-colour;
-  }
-}
-
-@-ms-keyframes "pulse" {
-  0% {
-    background-color: $primary-colour;
-  }
-  50% {
-    background-color: lighten($primary-colour, 10%);
-  }
-  100% {
-    background-color: $primary-colour;
-  }
-}
-
-.simply-scroll-container {
-  position: relative;
-}
-
-.simply-scroll-clip {
-  position: relative;
-  overflow: hidden;
-}
-
-.simply-scroll-list {
-  overflow: hidden;
-  margin: 0;
+fieldset.title {
+  border-top: 3px double $light-colour;
+  border-bottom: none;
+  border-left: none;
+  border-right: none;
+  display: block;
+  text-align: center;
+  font-size: 1em;
+  text-transform: uppercase;
+  font-family: $sans-caption;
+  font-weight: 700;
+  margin: .5em auto;
   padding: 0;
-  list-style: none;
-  li {
-    padding: 0;
-    margin: 0;
-    list-style: none;
-    img {
-      border: none;
-      display: block;
-    }
-  }
+  max-width: $max-width;
+}
+
+fieldset.title legend {
+  padding: 0 10px;
+  margin: 0;
 }
 
 .simply-scroll {
+  position: relative;
   width: 100%;
   height: 80px;
-  // margin-bottom: 1em;
   overflow: hidden;
   .simply-scroll-clip {
+    position: relative;
+    overflow: hidden;
     width: 100%;
     height: 80px;
   }
-  .simply-scroll-list {
+  ul {
+    overflow: hidden;
+    margin: 0;
+    padding: 0;
+    list-style: none;
     li {
+      padding: 0;
+      list-style: none;
       float: left;
       width: 80px;
       height: 80px;
       margin: 0 5px;
+      overflow: hidden;
       background-color: $primary-colour;
+      @include border-radius(1em);
       img {
         float: left;
+        border: none;
+        display: block;
+      }
+      .slider-thumbs {
+        @extend .clearfix;
       }
       h5 {
         @extend .clearfix;
-        margin: .3em 0 0;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        margin: 1em 0 0;
+        padding: 0 .5em;
         font-family: $sans-narrow;
         display: block;
         text-align: center;
         text-transform: uppercase;
-        color: $light-colour;
+        color: lighten($primary-colour, 30%);
+        font-size: 11px;
       }
     }
   }
 }
 
-// .arrow {
-//     display: table-cell;
-//     vertical-align: middle;
-//     text-align: center;
-// }
-.chevron {
-  margin-left: .5em;
-}
-.chevron::before {
-    color: $light-colour;
-    border-style: solid;
-    border-width: 0.25em 0.25em 0 0;
-    content: '';
-    display: inline-block;
-    height: 0.45em;
-    width: 0.45em;
-    transform: rotate(-45deg);
-    -webkit-transform: rotate(-45deg);
-    -moz-transform: rotate(-45deg);
-    -ms-transform: rotate(-45deg);
-    -o-transform: rotate(-45deg);
-    transform: rotate(-45deg);
-}
-.chevron.right:before {
-    transform: rotate(45deg);
-    -webkit-transform: rotate(45deg);
-    -moz-transform: rotate(45deg);
-    -ms-transform: rotate(45deg);
-    -o-transform: rotate(45deg);
-    transform: rotate(45deg);
-}
-.chevron.left:before {
-    transform: rotate(-135deg);
-    -webkit-transform: rotate(-135deg);
-    -moz-transform: rotate(-135deg);
-    -ms-transform: rotate(-135deg);
-    -o-transform: rotate(-135deg);
-    transform: rotate(-135deg);
+/*
+ * MEDIA QUERIES
+ */
 
-}
-
-/* Media Queries */
-
-// @media only screen and (min-width: 480px) {}
-
-@media only screen and (min-width: 500px) {
-
-  body {
-    background-color: lighten($primary-colour, 40%);
-    @include transition(background-color, 1s, ease);
-    // background-image: url('/assets/img/background.jpg');
-    // background: url('/assets/img/539084538_938ab0a6a8_b.jpg') no-repeat center center fixed;
-    // background-size: cover;
-  }
+@media only screen and (min-width: 480px) {
 
   header {
     padding: .5em 0;
     h1 {
-      font-size: 4.2em;
+      font-size: 4.4em;
       margin: 1.4em 0 0;
     }
     h2 {
@@ -305,39 +238,11 @@ a:hover.button {
     }
   }
 
-  div.container {
-    position: relative;
-    margin: 0 auto;
-    width: 500px;
-    overflow: hidden;
-    // @include flex(1);
-    // @include box(horizontal, center, center);
-    // border: 2px solid rgba(255,255,255,.1);
-    @include border-radius(2.4em);
-    // @include box-shadow(0, 2px, 6px, rgba(0,0,0,.6));
-    // @include transition(border-radius, 1s, ease);
-    @include transition(margin-top, 1s, ease);
-    &:before {
-      content: '';
-      display: inline-block;
-      height: 100%;
-      vertical-align: middle;
-      margin-right: -0.25em; /* Adjusts for spacing */
-    }
-  }
-
-  .wrapper {
-    display: inline-block;
-    vertical-align: middle;
-    width: 500px;
-    // @include box(horizontal, center, center);
-  }
-
   section {
     > h3 {
       margin: 1em 0;
     }
-    &.next {
+    &.content-footer {
       h5 {
         margin: 1em 0;
       }
@@ -350,23 +255,37 @@ a:hover.button {
 
   footer {
     h6 {
-      margin: 1em 0 2em;
+      margin: 1em 0;
     }
   }
 
   a.button {
+    max-width: $max-width;
     margin: 0 auto;
     padding: 1em 0;
     border-width: 1px;
-    @include border-radius(1.5em);
+    @include border-radius(1em);
   }
-
-  // header {
-  //   @include border-radius-separate(2em, 2em, 0, 0);
-  // }
 
 }
 
-// @media only screen and (min-width: 1140px) {}
+@media only screen and (min-width: 769px) {
 
+  body {
+    background-color: darken($primary-colour, 3%);
+    @include transition(background-color, 1s, ease);
+  }
+
+  #container {
+    position: relative;
+    margin: 2% auto;
+    width: 769px;
+    overflow: hidden;
+    @include border-radius(1.4em);
+    @include box-shadow(0, 0, 40px, rgba(0,0,0,.4));
+  }
+
+}
+
+@import 'helpers';
 @import 'print';

@@ -38,7 +38,9 @@
 |
 */
 
-$route['default_controller'] = "app";
+$route['default_controller'] = "oracle";
+$route['question/(:num)'] = "oracle/question/$1";
+$route['result/(:any)'] = "oracle/result/$1";
 $route['404_override'] = '';
 
 

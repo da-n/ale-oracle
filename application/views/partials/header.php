@@ -30,10 +30,10 @@
 <!--[if lt IE 7]>
     <p class="chromeframe">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">activate Google Chrome Frame</a> to improve your experience.</p>
 <![endif]-->
-<div class="container">
-  <div class="wrapper">
-    <header>
-      <h2>Thweshers</h2>
-      <div id="star-1"></div>
-      <h1>Ale Oracle</h1>
-    </header>
+<div id="container" ontouchstart="this.classList.toggle('hover');">
+  <header>
+    <h2>Thweshers</h2>
+    <div id="star-1"></div>
+    <h1>Ale Oracle</h1>
+  </header>
+  <div class="content content-default">

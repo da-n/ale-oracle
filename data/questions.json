@@ -1,0 +1,30 @@
+[
+  {
+    "id": 0,
+    "number": "...huh?",
+    "question": "Oh dear, I can't answer that question :( Do you want to start over?",
+    "next_page": "",
+    "next_page_text": "Back to Ale Oracle"
+  },
+  {
+    "id": 1,
+    "number": "one",
+    "question": "Is it hot, average or cold where you are?",
+    "next_page": "question/2",
+    "next_page_text": "Next Question"
+  },
+  {
+    "id": 2,
+    "number": "two",
+    "question": "Which best describes your mood?",
+    "next_page": "question/3",
+    "next_page_text": "Final Question"
+  },
+  {
+    "id": 3,
+    "number": "three",
+    "question": "Are you feeling adventerous, or play it on the safe-side?",
+    "next_page": "result/fixed",
+    "next_page_text": "Go to result"
+  }
+]

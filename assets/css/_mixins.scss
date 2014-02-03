@@ -246,9 +246,25 @@
 }
 
 /* ANIMATION */
-@mixin animation($animType, $animTime, $animDirection, $animCount) {
-  -webkit-animation: $animType $animTime $animDirection $animCount;
-  -moz-animation: $animType $animTime $animDirection $animCount;
-  -ms-animation: $animType $animTime $animDirection $animCount;
-  animation: $animType $animTime $animDirection $animCount;
+@mixin animation($animName: "", $animTime: "", $animDirection: "", $animCount: "") {
+  -webkit-animation: $animName $animTime $animDirection $animCount;
+  -moz-animation: $animName $animTime $animDirection $animCount;
+  -ms-animation: $animName $animTime $animDirection $animCount;
+  animation: $animName $animTime $animDirection $animCount;
+}
+
+// keyframes mixin
+@mixin keyframes($name) {
+  @-webkit-keyframes #{$name} {
+    @content;
+  }
+  @-moz-keyframes #{$name} {
+    @content;
+  }
+  @-ms-keyframes #{$name} {
+    @content;
+  }
+  @keyframes #{$name} {
+    @content;
+  }
 }
