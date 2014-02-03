@@ -11,20 +11,20 @@
     "number": "one",
     "question": "Are you in the mood for something light and crisp, well-rounded, or dark and moody?",
     "next_page": "question/2",
-    "next_page_text": "Next Question"
+    "next_page_text": "Next"
   },
   {
     "id": 2,
     "number": "two",
     "question": "Do you want hops, fruitiness, bitterness or something exotic?",
     "next_page": "question/3",
-    "next_page_text": "Final Question"
+    "next_page_text": "Next"
   },
   {
     "id": 3,
     "number": "three",
     "question": "Are you feeling adventerous or playing it safe and steady?",
     "next_page": "result/fixed",
-    "next_page_text": "Go to result"
+    "next_page_text": "Next"
   }
 ]

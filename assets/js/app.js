@@ -4,6 +4,8 @@ $(document).ready(function() {
     maxFontSize: "80px"
   });
 
+  // $("section.result h3").fitText();
+
   $("ul.social-scroller").simplyScroll({
     pauseOnHover: false,
     pauseOnTouch: false

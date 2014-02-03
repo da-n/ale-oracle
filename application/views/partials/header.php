@@ -34,6 +34,6 @@
   <header>
     <h2>Thweshers</h2>
     <div id="star-1"></div>
-    <h1>Ale Oracle</h1>
+    <h1><a href="/">Ale Oracle</a></h1>
   </header>
   <div class="content content-default">

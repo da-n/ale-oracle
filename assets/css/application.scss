@@ -3,7 +3,7 @@
 
 $primary-colour: #222;
 $secondary-colour: #444;
-$highlight-colour: #f69525;
+$highlight-colour: #4dcdfd;
 $dark-colour: #2a231d;
 $light-colour: #ede2cc;
 $sans: 'PT Sans', Helvetica, Arial, sans-serif;
@@ -16,6 +16,16 @@ body {
   @include transition(background-color, 1s, ease);
   color: $light-colour;
   text-align: center
+}
+
+a {
+  color: $highlight-colour;
+  text-decoration: none;
+  @include transition(color, .3s, ease);
+  &:hover {
+    color: lighten($highlight-colour, 25%);
+    @include transition(color, .3s, ease);
+  }
 }
 
 h1 {
@@ -51,6 +61,14 @@ header {
     font-family: $sans-narrow;
     font-size: 4.2em;
     margin: 1em 0 0;
+    a {
+      color: $light-colour;
+      @include transition(color, .3s, ease);
+      &:hover {
+        color: lighten($light-colour, 10%);
+        @include transition(color, .3s, ease);
+      }
+    }
   }
   h2 {
     font-family: $sans-caption;
@@ -90,10 +108,34 @@ section {
       margin: .5em 0;
     }
   }
+  &.question {
+    padding: 0 20px;
+  }
   &.question-header {
     h2 {
       font-size: 2em;
       text-transform: uppercase;
+    }
+  }
+  &.result {
+    padding: 0 20px;
+    text-align: center;
+    h3 {
+      font-family: $sans-narrow;
+      font-size: 2.6em;
+      margin: 0;
+    }
+    h5 {
+      color: $highlight-colour;
+      margin: 0 0 1em;
+    }
+    img.ale {
+      margin: 0;
+      @include box-shadow(0, 0, 20px, rgba(0,0,0,.4));
+    }
+    p {
+      line-height: 1.5;
+      font-size: .9em;
     }
   }
 }
@@ -166,6 +208,35 @@ fieldset.title {
 fieldset.title legend {
   padding: 0 10px;
   margin: 0;
+}
+
+.select-style {
+  border: 1px solid white;
+  max-width: $max-width;
+  @include border-radius(.5em);
+  overflow: hidden;
+  background: white url("data:image/png;base64,R0lGODlhDwAUAIABAAAAAP///yH5BAEAAAEALAAAAAAPABQAAAIXjI+py+0Po5wH2HsXzmw//lHiSJZmUAAAOw==") no-repeat 95% 50%;
+  text-align: center;
+  margin: 1em auto;
+}
+
+.select-style select {
+  padding: 1em;
+  // color: $dark-colour;
+  width: $max-width;
+  font-weight: 700;
+  border: none;
+  box-shadow: none;
+  background: transparent;
+  background-image: none;
+  -webkit-appearance: none;
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+.select-style select:focus {
+  outline: none;
 }
 
 .simply-scroll {
@@ -264,7 +335,7 @@ fieldset.title legend {
     margin: 0 auto;
     padding: 1em 0;
     border-width: 1px;
-    @include border-radius(1em);
+    @include border-radius(.5em);
   }
 
 }
@@ -281,7 +352,7 @@ fieldset.title legend {
     margin: 2% auto;
     max-width: 769px;
     overflow: hidden;
-    @include border-radius(1.4em);
+    @include border-radius(.5em);
     @include box-shadow(0, 0, 40px, rgba(0,0,0,.4));
   }
 
