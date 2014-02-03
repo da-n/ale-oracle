@@ -279,11 +279,25 @@ fieldset.title legend {
   #container {
     position: relative;
     margin: 2% auto;
-    width: 769px;
+    max-width: 769px;
     overflow: hidden;
     @include border-radius(1.4em);
     @include box-shadow(0, 0, 40px, rgba(0,0,0,.4));
   }
+
+  // body {
+  //   background-color: darken($primary-colour, 3%);
+  //   @include transition(background-color, 1s, ease);
+  // }
+
+  // #container {
+  //   position: relative;
+  //   margin: 2% auto;
+  //   width: 469px;
+  //   overflow: hidden;
+  //   @include border-radius(1.4em);
+  //   @include box-shadow(0, 0, 40px, rgba(0,0,0,.4));
+  // }
 
 }
 

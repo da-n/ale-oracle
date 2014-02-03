@@ -8,7 +8,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
   <title>Ale Oracle</title>
   <meta name="description" content="Answer 3 simple questions and the Ale Oracle will recommend a matching ale.">
-  <meta name="viewport" content="width=device-width">
+  <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
   <link rel="stylesheet" href="/assets/css/application.css">
   <script src="/assets/js/vendor/modernizr-2.6.2-respond-1.1.0.min.js"></script>
   <script type="text/javascript">
