@@ -1,6 +1,6 @@
 # Ale Oracle
 
-This is a demo application which asks the user one or more questions then suggests an ale to match their mood. This is an alpha project.
+This is a demo application which asks the user one or more questions then suggests an ale to match their mood. This is an concept application not intended for actual use. To read about the concept behind this app, [see this wiki page](https://github.com/da-n/ale-oracle/wiki/Ale-Oracle-Conception).
 
 ## Features
 
