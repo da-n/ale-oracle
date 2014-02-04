@@ -165,7 +165,8 @@ a.button {
   font-weight: 700;
   @include transition(background-color, .3s, ease);
   border: 1px solid rgba(255,255,255,.2);
-  border-width: 1px 0;
+  border-width: 1px;
+  @include border-radius(.5em);
   @include box-shadow(0, 0, 2px, rgba(0,0,0,.6));
   &.button-pulse {
     @include animation(button_pulse, 1s, linear, infinite);
@@ -334,8 +335,6 @@ fieldset.title legend {
     max-width: $max-width;
     margin: 0 auto;
     padding: 1em 0;
-    border-width: 1px;
-    @include border-radius(.5em);
   }
 
 }
@@ -352,7 +351,7 @@ fieldset.title legend {
     margin: 2% auto;
     max-width: 769px;
     overflow: hidden;
-    @include border-radius(.5em);
+    @include border-radius(2em);
     @include box-shadow(0, 0, 40px, rgba(0,0,0,.4));
   }
 
